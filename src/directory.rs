@@ -90,6 +90,24 @@ impl Directory {
 
         Ok(Some(current_directory))
     }
+
+    pub fn get_file_path_by_target_path(&self, target_path: &Path) -> Option<&Path> {
+        let mut found = None;
+        for file_path in &self.files {
+            if file_path == target_path {
+                found = Some(file_path.as_path())
+            }
+        }
+        found
+    }
+
+    pub fn get_file_path(&self) -> &Path {
+        &self.path
+    }
+
+    pub fn get_directories(&self) -> &Vec<Directory> {
+        &self.directories
+    }
 }
 
 #[cfg(test)]
