@@ -108,6 +108,10 @@ impl Directory {
     pub fn get_directories(&self) -> &Vec<Directory> {
         &self.directories
     }
+
+    pub fn get_files(&self) -> &Vec<PathBuf> {
+        &self.files
+    }
 }
 
 #[cfg(test)]
